@@ -119,7 +119,7 @@ parameter.search.rf$bestTune
 # building a rf with the best tune parameters
 rf.model <- randomForest(Class ~., train, mtry = parameter.search.rf$bestTune$mtry, ntree = 10)
 
-# predictions
+# predictions of the RF model
 rf.preds <- predict(rf.model, test)
 
 # confusion matrix of the RF model
@@ -156,7 +156,7 @@ plotcp(ct.model)
 # classification tree plot
 rpart.plot(ct.model, digits = 3, box.palette = "pink")
 
-# predictions 
+# predictions of the CT model
 ct.preds <- predict(ct.model, test, type = "class")
 
 # confusion matrix of the CT
@@ -186,7 +186,7 @@ ada.model <- boosting(formula = Class~.,
                       maxdepth = parameter.search.ada$bestTune$maxdepth,
                       iter = parameter.search.ada$bestTune$nu)
 
-# predictions
+# predictions of the ADA BOOSTING model
 ada.preds <- predict(ada.model, test)
 
 # confusion matrix of the ADABOOSTING
@@ -271,7 +271,7 @@ xgb.model <- train(x = train [, -5],
                    verbose = TRUE,
                    method = "xgbTree")
 
-# predictions
+# predictions of the XGB model
 xgb.preds <- predict(xgb.model, test)
 
 # confusion matrix of the XGB model
@@ -293,7 +293,7 @@ gbm.model <- train(Class ~.,
                    trControl = ctrl.gbm,
                    tuneGrid = param.grid.gbm)
 
-# predictions
+# predictions of the GBM model
 gbm.preds <- predict(gbm.model, test)
 
 # confusion matrix of the GBM model
