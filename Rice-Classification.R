@@ -186,11 +186,7 @@ ada.model <- boosting(formula = Class~.,
                       maxdepth = parameter.search.ada$bestTune$maxdepth,
                       iter = parameter.search.ada$bestTune$nu)
 
-<<<<<<< HEAD
-# predictions of the ADA BOOSTING model
-=======
 # predictions of ADA BOOSTING model
->>>>>>> b5c72f3976e695e0ca21068c3c966ff87b48fcc9
 ada.preds <- predict(ada.model, test)
 
 # confusion matrix of the ADABOOSTING
